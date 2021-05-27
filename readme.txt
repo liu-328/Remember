@@ -1,7 +1,3 @@
-Git is a distributed version control system.
-Git is free software distributed under the GPL.
-hongxingchai
-xixi
-第一次修改提交到缓存区!
-第二次修改
-增加新分支dev
+1.Git和svn的区别：
+Git为分布式管理工具，svn为集中式管理工具。
+2.创建一个版本库
