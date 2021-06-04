@@ -524,18 +524,17 @@ is是同一性测试， == 是相同性测试
 交换两个变量的值
 """
 
-a = 5
-b = 3
-temp = a
-a = b
-b = temp
-print(a, b)  # 3 5
-
-a = 3
-b = 4
-a, b = 4, 3
-print(a, b)  # 4 3
-
+# a = 5
+# b = 3
+# temp = a
+# a = b
+# b = temp
+# print(a, b)  # 3 5
+#
+# a = 3
+# b = 4
+# a, b = 4, 3
+# print(a, b)  # 4 3
 
 
 
