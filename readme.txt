@@ -182,4 +182,15 @@ On branch master
 nothing to commit, working tree clean
 
 
+创建分支与合并分支：
+git branch +分支名     创建分支
+git checkout + 分支名   切换分支
+git checkout -b + 分支名  创建一个分支并切换到那个分支
+git branch  查看当前分支
 
+* dev
+  master
+前面有*号的为当前分支
+如果我们再dev这个分支里面修改文件内容想要同步到mster这个分支里面
+使用git merge dev 命令       ==     合并某分支到当前分支
+git branch -d + 分支名，为删除分支。
