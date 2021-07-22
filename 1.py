@@ -94,3 +94,5 @@ def main():
     write("To: 帅气的小刘", move=True, align="left", font=("楷体", 20, "normal"))
     done()
 
+
+
