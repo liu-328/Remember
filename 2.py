@@ -3339,11 +3339,11 @@ for in语句
 # print(list(enumerate(a)))  # [(0, 'java'), (1, 'python'), (2, 'C'), (3, 'C++')]
 # # 调用方法enumera时，可以通过第二个参数指定指定索引的起始值。
 # print(list(enumerate(a, 1)))  # [(1, 'java'), (2, 'python'), (3, 'C'), (4, 'C++')]
-#
 # for index, item in enumerate(a):
 #     print('a[{}] = {}'.format(index, item))
 # for index, item in list(enumerate(a)):
 #     print('a[{}] = {}'.format(index, item))
+# exit()
 
 """
     在执行while语句或者for-in语句时，如果循环正常结束，也就是说，如果没有执行循环体中的break语句从而提前退出循环，
@@ -3473,7 +3473,6 @@ for in语句
       第一个参数指定函数名，第二个指定可迭代对象。
       调用内置函数map后，会使用指定的函数名作用于指定可迭代对象的每个元素，然后生成新的可迭代对象。
 """
-
 
 # result = map(ord, 'abcd')
 # print(result)  # <map object at 0x1018affa0>
@@ -3721,7 +3720,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
           其实，在这两种情况下，都是有返回值的，返回值都是None。函数体在调用函数时才会被执行，因此，定义函数并不会改变函数的执行流程。
 """
 
-
 # def decide_args(arg1, arg2):
 #     if arg1 and arg2:
 #         return arg1, arg2
@@ -3751,7 +3749,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
 调用函数时，可硬二局每个形参在所有形参中的位置传递对应位置的实参，从而用每个实参初始化，
 """
 
-
 # def f(a, b, c):
 #     print('a =', a, 'b =', b, 'c =', c)
 #
@@ -3767,7 +3764,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
 由于关键字实参中指定看形参名，所以实参和形参的匹配关系更加清晰，而且每个关键字实参在所有
 关键字实参中的位置可以是任意的
 """
-
 
 # def f(a, b, c):
 #     print('a =', a, 'b =', b, 'c =', c)
@@ -3787,7 +3783,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
 相当于给实参对象贴了个标签，标签名就是形参名。
     如果实参对象是可变类型的，在函数体内对形参对象的任何修改其实就是对实参对象的修改。
 """
-
 
 # def f(age1, age2):
 #     print('初始化形参后：age1 = ', age1, 'age2 = ', age2)  # 初始化形参后：age1 =  10 age2 =  [1, 2, 3]
@@ -3854,7 +3849,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
     给形参设置默认值的语法格式为：形参 = 默认值
 """
 
-
 # def f1(a, b = 5):
 #     print('a =', a, 'b = ', b)
 #
@@ -3885,7 +3879,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
 给形参设置默认值之后，调用函数时就存在多动调用方式
 """
 
-
 # def fun(a, b=5):
 #     print('a = ', a, 'b = ', b)
 
@@ -3903,7 +3896,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
 并且前一次调用函数时在函数体内修改了形参的默认值，那么修改后的值将作为下一次调用函数式形参的默认值。
     不要把形参的默认值设置为可变类型的对象
 """
-
 
 # def fun(i=[]):
 #     i.append(18)
@@ -3969,7 +3961,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
 通常我们把个数可变的位置形参定义为最后一个形参，一边接受所有剩余位置的实参，
 """
 
-
 # def fun1(a, b, *c):
 #     print('a =', a, 'b =', b, 'c =', c)  # a = 1 b = 2 c = (3, 5, 6)
 #
@@ -3981,7 +3972,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
     如果个数可变的位置形参不是最后一个形参，那么其后面的所有形参都被定义为只能接收关键字实参的关键字形参
 如果向这些关键字形参传递位置实参，所有的位置实参都会被算作个数可变的，从而导致关键字实参的缺失，
 """
-
 
 # def fun2(*a, b, c):
 #     print('a =', a, 'b =', b, 'c =', c)  # a = (1, 2, 3) b = 2 c = 3
@@ -4001,7 +3991,6 @@ def 函数名([形式参数1， 形式参数2...形式参数n]):
     个数可变的位置形参是在定义函数时使用，
     使用*将序列中的每个元素都转换为位置实参是在调用函数时使用。
 """
-
 
 # def f(a, b, c):
 #     print('a =', a, 'b =', b, 'c =', c)
@@ -4064,7 +4053,6 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
 """
     函数的调用之使用**将字典中的每个键值对都转换为关键字实参。
 """
-
 
 # def f(a, b, c):
 #     print('a =', a, 'b =', b, 'c =', c)
@@ -4156,7 +4144,6 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
     更多关于文档字符串的约定，可以参考  PEP 257:https://www.python.org/dev/peps/pep-0257/
 """
 
-
 # def form_complex(real=0.0, imag=0.0):
 #     """Form a complex number
 #
@@ -4169,7 +4156,6 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
 """
     函数的注解：
 """
-
 
 # def f1(a: 'string type', b: 'int') -> 'join a with b':
 #     return a + str(b)
@@ -4202,7 +4188,6 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
 
 """
 
-
 # def fac(n):
 #     if n == 1:
 #         return 1
@@ -4218,7 +4203,6 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
     如果用函数fib(n)表示Fn,那么fib(n) = fib(n - 1) + fib(n - 2),
     且fib(0) = 0, fib(1) = 1
 """
-
 
 # def fib(n):
 #     if n == 0:
@@ -4249,7 +4233,6 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
     一直到这棋盘的64个格子满了以后。"舍罕王听了以后，认为这赏金微不足道，于是点头答应
     问：共需要赏赐给这位宰相多少麦子
 """
-
 
 # def wheats(n):
 #
@@ -4302,7 +4285,6 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
 思路：通过循环反复进行角谷猜想的两种运算，当运算结果为1的时候则退出循环
 """
 
-
 # def jiaogu(n):
 #
 #     nc = n
@@ -4325,7 +4307,6 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
 #     print(n)
 #
 # jiaogu(5)
-
 
 
 # n = int(input('请输入一个整数：'))
@@ -4358,7 +4339,7 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
 
 """
     鸡兔同笼：
-    在同一个笼子里有若干只鸡和兔，上面数有h个头，下面数有y只脚
+    在同一个笼子里有若干只鸡和兔，上面数有h个头，下面数有f只脚
     求笼子里🐔和🐰的个数
     设计思路：
     设鸡和兔的只数分别为x,y
@@ -4369,6 +4350,7 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
 
 
 # def chicken_rabbit(h, f):
+#
 #     for x in range(1, h):
 #         y = h - x
 #         if 2 * x + 4 * y == f:
@@ -4469,24 +4451,185 @@ def sorted(*args, **kwargs):    其中 *args表示个数可变的位置形参，
 # slowest_child()
 
 
-def slowest_child():
+# def slowest_child():
+#     for li in [[x, 9, 6 - x] for x in range(1, 6) if x - (6 - x) > 1]:
+#         scores = list(range(1, 10))
+#         for score in li:
+#             scores.remove(score)
+#         for wang in [[y, 8, 7 - y] for y in scores if 7 - y in scores and y - (7 - y) > 1]:
+#             for score in wang:
+#                 scores.remove(score)
+#             zhang = scores
+#             if zhang[2] - zhang[1] > 1 and zhang[1] - zhang[0] > 1:
+#                 print('李家三个孩子的分数', li)
+#                 print('王家三个孩子的分数', wang)
+#                 print('张家三个孩子的分数', zhang)
+#
+# slowest_child()
 
-    for li in [[x, 9, 6 - x] for x in range(1, 6) if x - (6 - x) > 1]:
-        scores = list(range(1, 10))
-        for score in li:
-            scores.remove(score)
-        for wang in [[y, 8, 7 - y] for y in scores if 7 - y in scores and y - (7 - y) > 1]:
-            for score in wang:
-                scores.remove(score)
-            zhang = scores
-            if zhang[2] - zhang[1] > 1 and zhang[2] - zhang[1] > 1:
-                print('李家三个孩子的分数', li)
-                print('王家三个孩子的分数', wang)
-                print('张家三个孩子的分数', zhang)
+"""
+    杨辉三角
+    特点 第i行有i个数
+    
+    
+    假设要打印n行，
+    对于特点2，则有：
+    L[i][0] = L[i][i] = 1 (i = 0, 1, 2, 3......, n-1)
+    对于特点三，则有：
+    当j != 0且 j != i时，L[i][j] = L[i - 1][j - 1] + L[i - 1][j]
+    
+    首先初始化一个所有元素都为1的n行二维列表，第i行有i个数：
+    然后，根数上述特点三的条件和公式更新二维列表，对杨辉三角中部位1的位置进行更新
+    最后根据杨辉三角的格式打印二维列表。
+          先打印一定数量的水平制表符，第i行打印n - i 个
+          打印每行的内容时除最后一个数之外，每打印一个数之后打印两个水平制表符
+          对于每行的最后一个数，打印之后换行，准备打印下一行
+"""
+
+
+# L = [[1],
+#      [1, 1],
+#      [1, 2, 1],
+#      [1, 3, 3, 1],
+#      [1, 4, 6, 4, 1],
+#      [1, 5, 10, 10, 5, 1],
+#      [1, 6, 15, 20, 15, 6, 1],
+#      [1, 7, 21, 45, 45, 21, 7, 1],
+#      [1, 8, 28, 66, 90, 66, 28, 8, 1]
+#      ]
+# 初始化一个所有元素都为1的n行二维列表，第i行有i个数：
+L = [[1 for j in range(i + 1)] for i in range(9)]
+
+#  然后，根数上述特点三的条件和公式更新二维列表，对杨辉三角中部位1的位置进行更新
+for i in range(2, 9):
+    for j in range(i + 1):
+        if j != 0 and j != i:
+            # print(i, j)
+            L[i][j] = L[i - 1][j - 1] + L[i - 1][j]
+            print('L[%d][%d] = L[%d - 1][%d - 1] + L[%d - 1][%d]' % (i, j, i, j, i, j))
+# 最后根据杨辉三角的格式打印二维列表
+for i in range(9):
+    # 先打印一定数量的水平制表符，第i行打印n - i 个
+    print('\t' * (8 - i), end='')
+    # 打印每行内容时
+    for j in range(i + 1):
+        # 出最后一个数之外
+        if j != i:
+            # 每打印一个数之后打印两个水平制表符
+            print('%d\t\t' % L[i][j], end='')
+        # 对于每行的最后一个数
+        else:
+            # 打印之后换行，准备打印下一行
+            print('%d' % L[i][j])
+
+# L = [[1],
+#      [1, 1],
+#      [1, 2, 1],
+#      [1, 3, 3, 1],
+#      [1, 4, 6, 4, 1],
+#      [1, 5, 10, 10, 5, 1],
+#      [1, 6, 15, 20, 15, 6, 1],
+#      [1, 7, 21, 45, 45, 21, 7, 1],
+#      [1, 8, 28, 66, 90, 66, 28, 8, 1]
+#      ]
+
+
+# def method(max):
+#     # 入口:n控制行数，用列表lst代表当前行
+#     n, lst = 0, [1]
+#     while n < max:
+#         # 返回当前行
+#         yield lst
+#         # 从上一行下标为2的元素开始，与前一项相加，一次替换列表元素
+#         lst = [lst[i] + lst[i-1] for i in range(1, len(lst))]
+#         # 每行第一个元素为1
+#         lst.insert(0, 1)
+#         # 每行最后一个元素为1
+#         lst.append(1)
+#         n += 1
+#
+#
+# for n in method(5):
+#     print(n)
+
+"""
+    谁在说谎：
+    张三说李四在说谎，李四说王五在说谎，王五说张三和李四都在说慌
+    思路：
+    张三说李四在说谎：说明要么张三说的是真话，李四说的假话，要么李四说的是真话，张三说的是假话
+    李四说王五在说谎：说明要么李四说的是真话，王五说的假话，要么王五说的是真话，李四说的是假话
+    王五说张三和李四都在说慌：说明要么王五说的是真话，张三和李四说的都是假话，要么王五说的是假话,张三和李四至少有一个说的是真话。
+"""
+a = [True, False]
+for zhangsan in a:
+    for lisi in a:
+        for wangwu in a:
+            if zhangsan == (not lisi) and lisi == (not wangwu) and wangwu == ((not zhangsan) and (not lisi)):
+                print('zhangsan =', zhangsan, 'lisi =', lisi, 'wangwu =', wangwu)
+
+                print('张三 = {zhang} , 李四 = {li} , 王五 = {wang}'.format(zhang='真话' if zhangsan == True else '假话',
+                                                           li='真话' if lisi == True else '假话',
+                                                           wang='真话' if wangwu == True else '假话'))
+
+"""
+问题描述：
+    猴子第一天摘下若干个桃子，当即吃了一半，觉得不过瘾，又多吃了一个
+    第二天将第一天剩下的桃子吃了一半，又多吃了一个
+    以后每天早上都吃了前一天剩下的一半后又多吃了一个。
+    到了第十天的时候，发现只剩下一个桃子了
+    求猴子第一天摘了多少桃子。
+    设计思路一：递推
+            第一天的桃子数是第二天的桃子数加一后乘以2，第二天的桃子数是第三天的桃子数加一后的二倍
+            ...一般的，第n天的桃子数是第n+1天的桃子数加一后的2倍
+            设第n天的桃子数是L(n)，则有递推关系L(n)=(L(n+1)+1)*2,且初始条件为L(10)=1。
+            根据地推关系和初始条件，L(10) --> L(9) --> L(8) -->.....--> L(1)。
+"""
+
+
+def monkey_peach1():
+    """求猴子第一天摘了多少桃子。"""
+    L = [None] * 11
+    # 初始条件为L[10]=1
+    L[10] = 1
+
+    # 设第n天的桃子数是L(n)，则有递推关系L(n) = (L(n + 1) + 1) * 2, 且初始条件为L(10) = 1。
+    # 根据地推关系和初始条件，L(10) --> L(9) --> L(8) -->..... --> L(1)。
+    for n in range(9, 0, -1):
+        L[n] = (L[n + 1] + 1) * 2
+
+    return L[1]
+
+print('猴子第一天摘了%d个桃子' % monkey_peach1())
+
+"""
+设计思路二：递归
+    设计思路一递推关系可看做在一个函数体的内部有调用了该函数，
+    设计思路一的初始条件可以看做递归结束条件（递归出口）
+
+"""
+
+def monkey_peach2(day):
+    """求猴子第一天摘了多少桃子。"""
+    # 递归结束条件（递归出口）：L(10)=1
+    if day == 10:
+        return 1
+    else:
+        # 递推关系L(n) = (L(n + 1) + 1) * 2可看做在一个函数体的内部又调用了该函数。
+        return (monkey_peach2(day + 1) + 1) * 2
+
+
+monkey_peach2(1)
+print('猴子第一天摘了%d个桃子' % monkey_peach2(1))
 
 
 
-slowest_child()
+
+
+
+
+
+
+
 
 
 
