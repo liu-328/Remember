@@ -16,7 +16,3 @@ print(name_list)
 
 
 
-
-
-
-

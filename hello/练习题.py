@@ -12,3 +12,4 @@ while a < 10:
         i += 1
     a += 1
     print('')
+
