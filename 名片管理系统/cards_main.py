@@ -12,7 +12,7 @@ while True:
     # 1,2,3 是针对名片的操作
     if action_str in ["1", "2", "3"]:
 
-        # 新增名片
+        # 新增名片 
         if action_str == "1":
             cards_tools.new_card()
 

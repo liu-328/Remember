@@ -34,7 +34,7 @@ def new_card():
     # 3.将名片字典添加到字典中
     card_list.append(card_dict)
 
-    print(card_list)
+    # print(card_list)
     # 4.提示添加成功
     print("添加%s的名片成功" % name_str)
 
@@ -45,7 +45,7 @@ def show_all():
     print("-" * 50)
     print("显示所有名片")
 
-    # 判断是否存在名片记录，如果没有，提示用户反悔
+    # 判断是否存在名片记录，如果没有，提示用户返回
     if len(card_list) == 0:
 
         print("当前没有任何名片记录，请使用新增功能增加名片")
@@ -86,7 +86,7 @@ def search_card():
 
         if card_dict['name'] == find_name:
 
-            print("姓名\t\t\t电话\t\t\t手机号\t\t\t微信号")
+            print("姓名\t\t\t电话\t\t\t性别\t\t\t微信号")
             print("*" * 50)
             print("%s\t\t\t%s\t\t\t%s\t\t\t%s\t\t\t" % (card_dict["name"],
                                                         card_dict["phone"],
@@ -104,7 +104,7 @@ def deal_card(find_dict):
     处理查找到的名片
     :param find_dict:查找到的名片
     """
-    print(find_dict)
+    # print(find_dict)
 
     action_str = input("请选择要执行的操作：[1]修改 | [2]删除 | [0]返回上级菜单：")
 
