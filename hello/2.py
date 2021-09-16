@@ -1,25 +1,24 @@
 # import random
 # # 剪刀 = 0， 石头 = 1， 布 = 2
-# player = int(input("石头剪刀布："))
 # while True:
+#     player = input("石头剪刀布：")
 #     computer = random.randint(0, 2)
-#     if player == 3:
-#         print("游戏结束")
-#         break
-#     if player not in [0, 1, 2, 3]:
-#         player = int(input("请输入正确的数字："))
-#     if (player == 0 and computer == 2) or (player == 2 and computer == 1) or (player == 1 and computer == 0):
-#         print("玩家：%d, 电脑： %d" % (player, computer))
-#         print("恭喜你胜利了")
-#         player = int(input("石头剪刀布："))
-#         if player == computer:
+#     if player not in ["0", "1", "2", "3"]:
+#         print("请输入正确的数字!")
+#     else:
+#         player = int(player)
+#         if player == 3:
+#             print("游戏结束")
+#             break
+#         if (player == 0 and computer == 2) or (player == 2 and computer == 1) or (player == 1 and computer == 0):
+#             print("玩家：%d, 电脑： %d" % (player, computer))
+#             print("恭喜你胜利了")
+#         elif player == computer:
 #             print("玩家：%d, 电脑： %d" % (player, computer))
 #             print("不要走决战到天亮")
-#             player = int(input("石头剪刀布："))
 #         else:
 #             print("玩家：%d, 电脑： %d" % (player, computer))
 #             print("失败咯")
-#             player = int(input("石头剪刀布："))
 
 # sum = 0
 # a = 1
