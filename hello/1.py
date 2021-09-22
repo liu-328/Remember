@@ -91,8 +91,11 @@ def main():
     head(-120, 100, 100)
     heart(250, -80, 1)
     go_to(200, -300)
-    write("To: 帅气的小刘", move=True, align="left", font=("楷体", 20, "normal"))
+    write("To: 小刘真帅", move=True, align="left", font=("楷体", 20, "normal"))
     done()
+
+
+main()
 
 
 
