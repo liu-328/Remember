@@ -16,7 +16,7 @@ bed = HostItem("床", 4)
 print(bed)
 chest = HostItem("衣柜", 2)
 print(chest)
-table = HostItem("餐桌", 1.5)
+table = HostItem("餐桌", 200)
 print(table)
 
 
@@ -59,6 +59,6 @@ class Host:
 new_host = Host("别墅", 200)
 
 new_host.add_item(bed)
+new_host.add_item(chest)
+new_host.add_item(table)
 print(new_host)
-# new_host.add_item(chest)
-# new_host.add_item(table)

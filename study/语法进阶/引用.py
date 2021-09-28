@@ -25,4 +25,18 @@ print("%s 函数的内存地址是 %d" % (r, id(r)))
 
 print(id(None))
 
+a = [1, 2, 3]
+print(id(a))
+b = [1, 2, 3]
+print(id(b))
+
+print(a == b)  # True  ==运算符是判断变量引用的参数是否相等
+print(a is b)  # False  is 运算符是判断变量引用的参数的内存地址是否相等
+
+
+
+
+
+
+
 
