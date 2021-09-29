@@ -38,7 +38,7 @@ class XiaoTianQuan(Dog):
         # 使用super().调用原本在父类中封装的方法。
         super().bark()
 
-        # 使用父类名.方法名(self) 不推荐   
+        # 使用父类名.方法名(self) 不推荐
         # Dog.bark(self)
 
         # 注意，如果使用子类调用方法，会出现递归  · 死循环
