@@ -1,0 +1,9 @@
+想要操作目录需要导入os模块
+    1.文件重命名 os.rename("原文件name","新文件name")
+    2.删除文件  os.remove("文件名")
+    3.查看当前目录下的内容 os.listdir(".")
+    4.判断是文件还是文件夹 os.path.isdir("文件/文件夹名字")
+    5.创建目录 os.mkdir("目录名")
+    6.删除目录 os.rmdir("目录名")
+    7.获取当前目录 os.getcwd()
+    8.修改工作目录 os.chdir("目标目录")
