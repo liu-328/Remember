@@ -1,0 +1,11 @@
+[ {
+  "uid" : "699fc347d49bf70c",
+  "name" : "test_get_token",
+  "time" : {
+    "start" : 1638499285013,
+    "stop" : 1638499286296,
+    "duration" : 1283
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

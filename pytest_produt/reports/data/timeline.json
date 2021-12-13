@@ -1,0 +1,26 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "liushijiadeMacBook-Pro.local",
+    "children" : [ {
+      "name" : "88549-MainThread",
+      "children" : [ {
+        "name" : "test_get_token",
+        "uid" : "699fc347d49bf70c",
+        "parentUid" : "dd7cf48b0712d925b86f04d26e73bd47",
+        "status" : "passed",
+        "time" : {
+          "start" : 1638499285013,
+          "stop" : 1638499286296,
+          "duration" : 1283
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "dd7cf48b0712d925b86f04d26e73bd47"
+    } ],
+    "uid" : "797e53f0b2acd3a47075b5378a8236c7"
+  } ],
+  "name" : "timeline"
+}

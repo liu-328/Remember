@@ -1,0 +1,10 @@
+# pip install ‐r requirements.txt 安装以下插件命令
+
+pytest
+pytest-html
+pytest-xdist
+pytest-ordering
+pytest-rerunfailures
+pytest-base-url
+allure-pytest
+requests

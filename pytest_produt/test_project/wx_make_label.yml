@@ -1,0 +1,8 @@
+-
+  name: 创建标签接口
+  request:
+    method: post
+    url: /tags/create?access_token=${read_yml(access_token)}
+    json: {"tag":{"name": '小刘${get_random(00000, 99999)}'}}
+  validate: none
+

@@ -1,0 +1,146 @@
+{
+  "uid" : "699fc347d49bf70c",
+  "name" : "test_get_token",
+  "fullName" : "test_project.test_wxapi.TestWxApi#test_get_token",
+  "historyId" : "813d111d3df2cfdcca053d2dde3956bd",
+  "time" : {
+    "start" : 1638499285013,
+    "stop" : 1638499286296,
+    "duration" : 1283
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "module_fix",
+    "time" : {
+      "start" : 1638499285012,
+      "stop" : 1638499285012,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_verify_url",
+    "time" : {
+      "start" : 1638499285012,
+      "stop" : 1638499285012,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1638499285012,
+      "stop" : 1638499285012,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "session_fix",
+    "time" : {
+      "start" : 1638499285012,
+      "stop" : 1638499285012,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "module_fix::0",
+    "time" : {
+      "start" : 1638499286297,
+      "stop" : 1638499286297,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "session_fix::0",
+    "time" : {
+      "start" : 1638499286300,
+      "stop" : 1638499286300,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_project"
+  }, {
+    "name" : "suite",
+    "value" : "test_wxapi"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestWxApi"
+  }, {
+    "name" : "host",
+    "value" : "liushijiadeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "88549-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_project.test_wxapi"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "699fc347d49bf70c.json",
+  "parameterValues" : [ ]
+}

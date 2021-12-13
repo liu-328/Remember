@@ -1,4 +1,6 @@
 # 1.打开文件
+import os
+
 file = open("readme")
 
 # 2.读取文件
@@ -16,7 +18,7 @@ file.close()
 
 
 
-
+os.mkdir(os.getcwd()+'a')
 
 
 

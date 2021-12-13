@@ -1,0 +1,13 @@
+-
+  name: 获取鉴权码接口
+  request:
+    method: get
+    url: /token
+    params:
+      grant_type: client_credential
+      appid: wxcb74080c48a3441f
+      secret: 550a96b7617991fa4d9fb4c6fac416c5
+  extract:
+    access_token: '"access_token":"(.*?)"'
+    expires_in: $.expires_in
+  validate: none

@@ -10,11 +10,3 @@ for index in range(len(info_tuple)):
 
     print(index, info_tuple[index])
 
-
-
-
-
-
-
-
-

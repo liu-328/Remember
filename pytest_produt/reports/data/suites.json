@@ -1,0 +1,30 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "test_project",
+    "children" : [ {
+      "name" : "test_wxapi",
+      "children" : [ {
+        "name" : "TestWxApi",
+        "children" : [ {
+          "name" : "test_get_token",
+          "uid" : "699fc347d49bf70c",
+          "parentUid" : "7dad5d76014b92f496c6b2715d089b17",
+          "status" : "passed",
+          "time" : {
+            "start" : 1638499285013,
+            "stop" : 1638499286296,
+            "duration" : 1283
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "7dad5d76014b92f496c6b2715d089b17"
+      } ],
+      "uid" : "b7ddafa4302830beaac70417112661a8"
+    } ],
+    "uid" : "2ab37444362456ea9d8086650faac63c"
+  } ],
+  "name" : "suites"
+}

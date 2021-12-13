@@ -1,0 +1,8 @@
+-
+  name: 查询标签接口
+  request:
+    method: get
+    url: /tags/get
+    params:
+      access_token: ${access_token}
+  validate: none
