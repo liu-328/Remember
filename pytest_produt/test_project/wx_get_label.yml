@@ -4,5 +4,8 @@
     method: get
     url: /tags/get
     params:
-      access_token: ${access_token}
-  validate: none
+      access_token: ${read_relation_data(access_token)}
+  validate:
+    - equals: { "status_code": 200}
+    - equals: { "name": 星标组 }
+    - contains: "tags"

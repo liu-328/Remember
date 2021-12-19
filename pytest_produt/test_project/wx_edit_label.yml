@@ -1,0 +1,10 @@
+-
+  name: 修改标签接口
+  request:
+    method: post
+    url: /tags/update?access_token=${read_relation_data(access_token)}
+    json: {"tag":{"id":'${read_relation_data(id)}', "name":'修改${get_random(00000, 99999)}'}}
+  validate:
+  - equals: { "status_code": 200}
+  - equals: { "errcode": 0 }
+  - contains: "ok"

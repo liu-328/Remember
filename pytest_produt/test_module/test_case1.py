@@ -1,5 +1,6 @@
 # 跳过测试用例
 import pytest
+import requests
 age = 10
 
 

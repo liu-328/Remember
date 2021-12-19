@@ -2,7 +2,9 @@
   name: 文件上传接口
   request:
     method: post
-    url: /media/uploadimg?access_token=
-    headers: none
-    datas: {"media": "/Users/liushijia/Pictures/16331636560492_.png"}
-  validate: none
+    url: /media/uploadimg?access_token=${read_relation_data(access_token)}
+    files:
+      media: /Users/liushijia/Pictures/16331636560492_.png
+  validate:
+    - equals: { "status_code": 200 }
+    - contains: "url"

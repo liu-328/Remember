@@ -2,41 +2,102 @@ import json
 import re
 import jsonpath
 import requests
-from Commons.yaml_util import read_config_yml, write_relation_yml, read_relation_yml
+from Commons.yaml_util import read_config_yml, write_relation_yml
 
 
 # 提取关键字实现接口关联
-from Debug_talk import DebugTalk
-
-
-def extract_association(info, response):
+def extract_association(info, response, obj):
     info_keys = info.keys()
     return_txt = response.text
+    response_code = response.status_code
+    return_json = response.json()
 
     if 'extract' in info_keys:
         for key, value in info['extract'].items():
             if '(.*?)' in value or '(.+?)' in value:
                 regular = re.search(value, return_txt)
-
                 if regular:
-                    write_relation = {key: regular.group(1)}
-                    write_relation_yml(write_relation)
+                    write_relation_yml({key: regular.group(1)})
+
             else:
                 try:
                     return_json = response.json()
                     js_expression = jsonpath.jsonpath(return_json, value)
+
                     if js_expression:
-                        write_relation = {key: js_expression[0]}
-                        write_relation_yml(write_relation)
+                        write_relation_yml({key: js_expression[0]})
                 except Exception:
                     print("返回的结果不是JSON格式，不能使用jsonpath提取")
+
+    # 断言值的替换
+    for i in info['validate']:
+        for validate_key, validate_value in i.items():
+            if validate_key == 'equals':
+                for k, v in validate_value.items():
+                    validate_value[k] = replace_value(v, obj)
+            if validate_key == 'contains':
+                replace_value(validate_value, obj)
+
+    # 断言
+    # return_json = json.loads(return_json)
+    assert_result(info['validate'], return_json, response_code)
+
+
+# 断言
+def assert_result(validate, return_json, response_code):
+    flag = 0
+    for expect_result in validate:
+        for key, value in expect_result.items():
+            # print(key, value)
+            if key == 'equals':
+                flag += assert_equals(value, response_code, return_json)
+            elif key == 'contains':
+                flag += assert_contains(value, return_json)
+            else:
+                print('暂不支持的断言方式')
+
+    assert flag == 0
+
+
+# 相等断言
+def assert_equals(value, response_code, return_json):
+    flag = 0
+    for assert_key, assert_value in value.items():
+        # print(key, value, '11111111')
+        if assert_key == 'status_code':
+            if assert_value != response_code:
+                print('断言失败：返回的状态码不等于200')
+                flag += 1
+        else:
+            lists = jsonpath.jsonpath(return_json, '$..%s' % assert_key)
+            if lists:
+                if assert_value not in lists:
+                    print('断言失败：%s的值不为%s' % (assert_key, assert_value))
+                    flag += 1
+            else:
+                print('断言失败：返回结果内不存在%s' % assert_key)
+                flag += 1
+
+    return flag
+
+
+# 包含断言
+def assert_contains(value, return_json):
+
+    a = 0
+    str_return = json.dumps(return_json)
+    if value not in str_return:
+        print('断言失败%s不在%s内' % (value, str_return))
+        a += 1
+
+    return a
 
 
 # 值替换
 # 替换值的方法
 # 考虑问题1：(替换url,params,data,json,headers)
 # 考虑问题2：(string,int,float,list,dict)
-def replace_value(data):
+def replace_value(data, obj):
 
     if data:
         # 保存数据类型
@@ -51,24 +112,19 @@ def replace_value(data):
                 start_str = str_data.index('${')
                 end_str = str_data.index('}')
                 old_value = str_data[start_str:end_str + 1]
-                # new_value = read_relation_yml(old_value[2:-1])
-                # str_data = str_data.replace(old_value, new_value)
-                # a = getattr(DebugTalk(), old_value)
-                print(old_value)
-                new_value = old_value[2: old_value.index('}')]
-                args = new_value[new_value.index('(')+1:new_value.index(")")]
-                print("args: ", args)
-                print(new_value)
-                # ccc = getattr(DebugTalk(), "get_random")(111, 222)
-
-                ddd = getattr(DebugTalk(), "read_yml")(*args)
-                # print(ccc)
-                print(ddd)
+                func = old_value[2: old_value.index('(')]
+                args = old_value[old_value.index('(')+1:old_value.index(")")]
+                args1 = args.split()
+                args2 = args.split(',')
+                if args2 is None:
+                    new_value = getattr(obj, func)
+                else:
+                    new_value = getattr(obj, func)(*args2)
+                str_data = str_data.replace(old_value, str(new_value))
         if isinstance(data, dict) or isinstance(data, list):
             data = json.loads(str_data)
         else:
             data = data_type(str_data)
-
     return data
 
 
@@ -88,33 +144,35 @@ class RequestsUtil:
                 method = info['request'].pop('method')
                 url = info['request'].pop('url')
                 res = self.send_request(method, url, **info['request'])
-                extract_association(info, res)
+                extract_association(info, res, self.obj)
             else:
                 print('在request下必须包含：method,url')
         else:
             print("一级关键字必须要包含：name,request,validate")
 
     # 读取base_url
-    def __init__(self, two):
+    def __init__(self, two, obj):
         self.base_url = read_config_yml('base', two)
+        self.obj = obj
 
     # 请求
     def send_request(self, method, url, **kwargs):
+
         # 请求方法改成小写
         method = str(method).lower()
         # url拼接
-        url = self.base_url + replace_value(url)
+        url = self.base_url + replace_value(url, self.obj)
         # 替换params,data,json,headers
         for key, values in kwargs.items():
             if key in ['params', 'data', 'json', 'headers']:
-                kwargs[key] = replace_value(values)
+                kwargs[key] = replace_value(values, self.obj)
             elif key == "files":
                 for file_key, file_path in values.items():
                     values[file_key] = open(file_path, 'rb')
         # 请求
         res = RequestsUtil.session.request(method, url, **kwargs)
+        print(res.text)
         return res
-
 
 
 
