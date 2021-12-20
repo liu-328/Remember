@@ -17,8 +17,15 @@ def extract_association(info, response, obj):
             if '(.*?)' in value or '(.+?)' in value:
                 regular = re.search(value, return_txt)
                 if regular:
-                    write_relation_yml({key: regular.group(1)})
+                    # 判断提取值类型
+                    if regular.group(1).isdigit():
+                        write_relation_yml({key: int(regular.group(1))})
 
+                    elif isfloat(regular.group(1)) is True:
+                        write_relation_yml({key: float(regular.group(1))})
+
+                    else:
+                        write_relation_yml({key: regular.group(1)})
             else:
                 try:
                     return_json = response.json()
@@ -127,6 +134,17 @@ def replace_value(data, obj):
             data = data_type(str_data)
     return data
 
+
+# 判断浮点数：
+def isfloat(str_num):
+    s = str_num.split('.')
+    if len(s) > 2:
+        return False
+    else:
+        for int_str in s:
+            if int_str.isdigit() is False:
+                return False
+        return True
 
 class RequestsUtil:
 
