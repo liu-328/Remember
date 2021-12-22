@@ -1,26 +1,20 @@
 # -*- coding: utf-8 -*-
 import pytest
-import requests
 from Commons.request_util import RequestsUtil
-from Commons.yaml_util import read_case_yml
 from Debug_talk import DebugTalk
+from Commons.parametrize_util import read_case_yml
 
 
 class TestWxApi:
 
     @pytest.mark.parametrize('args_name', read_case_yml('/test_project/wx_get_token.yml'))
     def test_get_token(self, args_name):
-
         RequestsUtil('base_wx_api', DebugTalk()).standard_yaml(args_name)
 
     @pytest.mark.parametrize('args_name', read_case_yml('/test_project/wx_get_label.yml'))
     def test_get_label(self, args_name):
 
         RequestsUtil('base_wx_api', DebugTalk()).standard_yaml(args_name)
-
-        # 返序列化
-        # a = json.loads(json.dumps(res.json()).replace(r'\\', '\\'))
-        # write_relation_yml({'id': res.json()["tag"]['id']})
 
     @pytest.mark.parametrize('args_name', read_case_yml('/test_project/wx_make_label.yml'))
     def test_make_label(self, args_name):

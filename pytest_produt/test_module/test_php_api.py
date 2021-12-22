@@ -1,6 +1,6 @@
 import pytest
+from Commons.parametrize_util import read_case_yml
 from Commons.request_util import RequestsUtil
-from Commons.yaml_util import read_case_yml
 from Debug_talk import DebugTalk
 
 

@@ -1,15 +1,16 @@
 -
-  name: 获取鉴权码接口
+  name: $ddt{name}
+  parameterize:
+    name-appid-secret-grant_type-assert_str: /datas/get_token_data.yml
   request:
     method: get
     url: /token
     params:
-      grant_type: client_credential
-      appid: wxcb74080c48a3441f
-      secret: 550a96b7617991fa4d9fb4c6fac416c5
+      appid: $ddt{appid}
+      secret: $ddt{secret}
+      grant_type: $ddt{grant_type}
   extract:
     access_token: '"access_token":"(.*?)"'
   validate:
-    - equals: {"expires_in": 7200}
-    - contains: "access_token"
+    - contains: $ddt{assert_str}
 

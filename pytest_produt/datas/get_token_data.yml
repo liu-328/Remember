@@ -1,0 +1,4 @@
+# DDT 数据驱动YML文件，对应的YML测试文件为wx_get_token.yml
+- ['name', 'appid', 'secret', 'grant_type', 'assert_str']
+- ['获取鉴权码接口', 'wxcb74080c48a3441f', '550a96b7617991fa4d9fb4c6fac416c5', 'client_credential', 'access_token']
+- ['检查appid为空', '', '550a96b7617991fa4d9fb4c6fac416c5', 'client_credential', 41002]

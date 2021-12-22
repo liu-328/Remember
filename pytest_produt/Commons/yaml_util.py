@@ -33,8 +33,8 @@ def clear_relation_yml():
 
 
 # 读取测试用例
-def read_case_yml(path):
-    with open(get_object_path()+path, 'r') as f:
+def read_data_yml(path):
+    with open(get_object_path()+path, 'r', encoding='utf-8') as f:
         value = yaml.load(f, Loader=yaml.FullLoader)
         return value
 

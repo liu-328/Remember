@@ -4,4 +4,4 @@
     method: get
     url: /phpwind/
   validate:
-    - contains: "!doctype html"
+    - contains: "本站新帖"

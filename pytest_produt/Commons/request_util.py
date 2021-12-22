@@ -5,6 +5,92 @@ import requests
 from Commons.yaml_util import read_config_yml, write_relation_yml
 
 
+class RequestsUtil:
+
+    session = requests.session()
+
+    # 规范yml
+    def standard_yaml(self, info):
+        print(info)
+        info_keys = info.keys()
+        # 判断一级关键字
+        if 'name' in info_keys and 'request' in info_keys and 'validate' in info_keys:
+            request_key = info['request'].keys()
+            # 判断二级关键字
+            if 'method' in request_key and 'url' in request_key:
+                # 发送请求
+                method = info['request'].pop('method')
+                url = info['request'].pop('url')
+                res = self.send_request(method, url, **info['request'])
+                extract_association(info, res, self.obj)
+            else:
+                print('在request下必须包含：method,url')
+        else:
+            print("一级关键字必须要包含：name,request,validate")
+
+    # 读取base_url
+    def __init__(self, two, obj):
+        self.base_url = read_config_yml('base', two)
+        self.obj = obj
+
+    # 请求
+    def send_request(self, method, url, **kwargs):
+
+        # 请求方法改成小写
+        method = str(method).lower()
+        # url拼接
+        url = self.base_url + replace_value(url, self.obj)
+        # 替换params,data,json,headers
+        for key, values in kwargs.items():
+            if key in ['params', 'data', 'json', 'headers']:
+                kwargs[key] = replace_value(values, self.obj)
+            elif key == "files":
+                for file_key, file_path in values.items():
+                    values[file_key] = open(file_path, 'rb')
+        # 请求
+        res = RequestsUtil.session.request(method, url, **kwargs)
+        print(res.text)
+        return res
+
+
+# 值替换
+# 替换值的方法
+# 考虑问题1：(替换url,params,data,json,headers)
+# 考虑问题2：(string,int,float,list,dict)
+def replace_value(data, obj):
+
+    if data:
+        # 保存数据类型
+        data_type = type(data)
+        # 判断数据类型
+        if isinstance(data, dict) or isinstance(data, list):
+            str_data = json.dumps(data)
+        else:
+            str_data = str(data)
+        for i in range(1, str_data.count('${') + 1):
+            if '${' in str_data and '}' in str_data:
+                start_str = str_data.index('${')
+                end_str = str_data.index('}')
+                old_value = str_data[start_str:end_str + 1]
+                func = old_value[2: old_value.index('(')]
+                args = old_value[old_value.index('(')+1:old_value.index(")")]
+                args1 = args.split()
+                args2 = args.split(',')
+                if args2 is None:
+                    new_value = getattr(obj, func)
+                else:
+                    new_value = getattr(obj, func)(*args2)
+                if isinstance(new_value, int) or isinstance(new_value, float):
+                    str_data = str_data.replace('"'+old_value+'"', str(new_value))
+                else:
+                    str_data = str_data.replace(old_value, str(new_value))
+        if isinstance(data, dict) or isinstance(data, list):
+            data = json.loads(str_data)
+        else:
+            data = data_type(str_data)
+    return data
+
+
 # 提取关键字实现接口关联
 def extract_association(info, response, obj):
     info_keys = info.keys()
@@ -97,50 +183,11 @@ def assert_equals(value, return_json):
 # 包含断言
 def assert_contains(value, response):
     flag = 0
-    str_return = json.dumps(response)
-    if value not in str_return:
-        print('断言失败%s不在%s内' % (value, str_return))
+    if str(value) not in response:
+        print('断言失败%s不在%s内' % (value, response))
         flag += 1
 
     return flag
-
-
-# 值替换
-# 替换值的方法
-# 考虑问题1：(替换url,params,data,json,headers)
-# 考虑问题2：(string,int,float,list,dict)
-def replace_value(data, obj):
-
-    if data:
-        # 保存数据类型
-        data_type = type(data)
-        # 判断数据类型
-        if isinstance(data, dict) or isinstance(data, list):
-            str_data = json.dumps(data)
-        else:
-            str_data = str(data)
-        for i in range(1, str_data.count('${') + 1):
-            if '${' in str_data and '}' in str_data:
-                start_str = str_data.index('${')
-                end_str = str_data.index('}')
-                old_value = str_data[start_str:end_str + 1]
-                func = old_value[2: old_value.index('(')]
-                args = old_value[old_value.index('(')+1:old_value.index(")")]
-                args1 = args.split()
-                args2 = args.split(',')
-                if args2 is None:
-                    new_value = getattr(obj, func)
-                else:
-                    new_value = getattr(obj, func)(*args2)
-                if isinstance(new_value, int) or isinstance(new_value, float):
-                    str_data = str_data.replace('"'+old_value+'"', str(new_value))
-                else:
-                    str_data = str_data.replace(old_value, str(new_value))
-        if isinstance(data, dict) or isinstance(data, list):
-            data = json.loads(str_data)
-        else:
-            data = data_type(str_data)
-    return data
 
 
 # 判断浮点数：
@@ -153,55 +200,3 @@ def isfloat(str_num):
             if int_str.isdigit() is False:
                 return False
         return True
-
-class RequestsUtil:
-
-    session = requests.session()
-
-    # 规范yml
-    def standard_yaml(self, info):
-        info_keys = info.keys()
-        # 判断一级关键字
-        if 'name' in info_keys and 'request' in info_keys and 'validate' in info_keys:
-            request_key = info['request'].keys()
-            # 判断二级关键字
-            if 'method' in request_key and 'url' in request_key:
-                # 发送请求
-                method = info['request'].pop('method')
-                url = info['request'].pop('url')
-                res = self.send_request(method, url, **info['request'])
-                extract_association(info, res, self.obj)
-            else:
-                print('在request下必须包含：method,url')
-        else:
-            print("一级关键字必须要包含：name,request,validate")
-
-    # 读取base_url
-    def __init__(self, two, obj):
-        self.base_url = read_config_yml('base', two)
-        self.obj = obj
-
-    # 请求
-    def send_request(self, method, url, **kwargs):
-
-        # 请求方法改成小写
-        method = str(method).lower()
-        # url拼接
-        url = self.base_url + replace_value(url, self.obj)
-        # 替换params,data,json,headers
-        for key, values in kwargs.items():
-            if key in ['params', 'data', 'json', 'headers']:
-                kwargs[key] = replace_value(values, self.obj)
-            elif key == "files":
-                for file_key, file_path in values.items():
-                    values[file_key] = open(file_path, 'rb')
-        # 请求
-        res = RequestsUtil.session.request(method, url, **kwargs)
-        print(res.text)
-        return res
-
-
-
-
-
-
