@@ -10,7 +10,6 @@ def extract_association(info, response, obj):
     info_keys = info.keys()
     return_txt = response.text
     response_code = response.status_code
-    return_json = response.json()
 
     if 'extract' in info_keys:
         for key, value in info['extract'].items():
@@ -46,36 +45,43 @@ def extract_association(info, response, obj):
                 replace_value(validate_value, obj)
 
     # 断言
-    # return_json = json.loads(return_json)
-    assert_result(info['validate'], return_json, response_code)
+    assert_result(info['validate'], response, response_code)
 
 
 # 断言
-def assert_result(validate, return_json, response_code):
+def assert_result(validate, response, response_code):
     flag = 0
-    for expect_result in validate:
-        for key, value in expect_result.items():
-            # print(key, value)
-            if key == 'equals':
-                flag += assert_equals(value, response_code, return_json)
-            elif key == 'contains':
-                flag += assert_contains(value, return_json)
-            else:
-                print('暂不支持的断言方式')
+    if response_code != 200:
+        print('断言失败：返回的状态码不等于200')
+        flag += 1
+    try:
+        if response.json():
+            return_json = response.json()
+            for expect_result in validate:
+                for key, value in expect_result.items():
+                    # print(key, value)
+                    if key == 'equals':
+                        flag += assert_equals(value, return_json)
+                    elif key == 'contains':
+                        flag += assert_contains(value, response.text)
+                    else:
+                        print('暂不支持的断言方式')
+    except:
+        return_txt = response.text
+        for expect_result in validate:
+            for key, value in expect_result.items():
+                if key == 'contains':
+                    flag += assert_contains(value, return_txt)
 
     assert flag == 0
 
 
 # 相等断言
-def assert_equals(value, response_code, return_json):
+def assert_equals(value, return_json):
     flag = 0
     for assert_key, assert_value in value.items():
         # print(key, value, '11111111')
-        if assert_key == 'status_code':
-            if assert_value != response_code:
-                print('断言失败：返回的状态码不等于200')
-                flag += 1
-        else:
+        if assert_key == 'equals':
             lists = jsonpath.jsonpath(return_json, '$..%s' % assert_key)
             if lists:
                 if assert_value not in lists:
@@ -89,15 +95,14 @@ def assert_equals(value, response_code, return_json):
 
 
 # 包含断言
-def assert_contains(value, return_json):
-
-    a = 0
-    str_return = json.dumps(return_json)
+def assert_contains(value, response):
+    flag = 0
+    str_return = json.dumps(response)
     if value not in str_return:
         print('断言失败%s不在%s内' % (value, str_return))
-        a += 1
+        flag += 1
 
-    return a
+    return flag
 
 
 # 值替换
@@ -127,7 +132,10 @@ def replace_value(data, obj):
                     new_value = getattr(obj, func)
                 else:
                     new_value = getattr(obj, func)(*args2)
-                str_data = str_data.replace(old_value, str(new_value))
+                if isinstance(new_value, int) or isinstance(new_value, float):
+                    str_data = str_data.replace('"'+old_value+'"', str(new_value))
+                else:
+                    str_data = str_data.replace(old_value, str(new_value))
         if isinstance(data, dict) or isinstance(data, list):
             data = json.loads(str_data)
         else:

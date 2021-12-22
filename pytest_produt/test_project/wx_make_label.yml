@@ -3,12 +3,11 @@
   request:
     method: post
     url: /tags/create?access_token=${read_relation_data(access_token)}
-    json: {"tag":{"name": '小刘${get_random(00000, 99999)}'}}
+    json: {"tag":{"name": "小刘${get_random(00000, 99999)}"}}
   extract:
     id: '"id":(.*?),"'
     name: '"name":"(.*?)"'
   validate:
-    - equals: { "status_code": 200 }
     - equals: {"name": '${read_relation_data(name)}'}
     - contains: "tag"
 

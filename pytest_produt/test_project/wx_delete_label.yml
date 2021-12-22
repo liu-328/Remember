@@ -5,6 +5,5 @@
     url: /tags/delete?access_token=${read_relation_data(access_token)}
     json: {"tag":{"id":'${read_relation_data(id)}'}}
   validate:
-    - equals: {"status_code": 200}
     - equals: {"errcode": 0}
     - contains: "ok"

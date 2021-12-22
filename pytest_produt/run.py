@@ -10,3 +10,7 @@ if __name__ == '__main__':
 #     # times = time.strftime('%Y_%m_%d %H:%M:%S', time.localtime())
 #     # os.system("allure generate ./temps -o ./reports --clean")
 
+# DDT驱动
+# 日志封装
+# 小细节优化
+

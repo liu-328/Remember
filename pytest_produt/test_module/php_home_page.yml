@@ -1,0 +1,7 @@
+-
+  name: PHP首页
+  request:
+    method: get
+    url: /phpwind/
+  validate:
+    - contains: "!doctype html"

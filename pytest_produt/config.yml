@@ -1,3 +1,3 @@
 base:
   base_wx_api: https://api.weixin.qq.com/cgi-bin
-  base_php_api: None
+  base_php_api: http://47.107.116.139

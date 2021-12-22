@@ -7,9 +7,6 @@ from Debug_talk import DebugTalk
 
 
 class TestWxApi:
-    session = requests.session()
-    access_token = ''
-    id = ''
 
     @pytest.mark.parametrize('args_name', read_case_yml('/test_project/wx_get_token.yml'))
     def test_get_token(self, args_name):
@@ -44,4 +41,5 @@ class TestWxApi:
     def test_upload_picture(self, args_name):
 
         RequestsUtil('base_wx_api', DebugTalk()).standard_yaml(args_name)
+
 

@@ -6,5 +6,4 @@
     files:
       media: /Users/liushijia/Pictures/16331636560492_.png
   validate:
-    - equals: { "status_code": 200 }
     - contains: "url"

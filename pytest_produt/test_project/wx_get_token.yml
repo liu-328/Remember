@@ -10,7 +10,6 @@
   extract:
     access_token: '"access_token":"(.*?)"'
   validate:
-    - equals: {"status_code": 200}
     - equals: {"expires_in": 7200}
     - contains: "access_token"
 
