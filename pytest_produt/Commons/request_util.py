@@ -1,10 +1,8 @@
 import json
 import re
 import traceback
-
 import jsonpath
 import requests
-
 from Commons.logger_util import error_log, logs
 from Commons.yaml_util import read_config_yml, write_relation_yml
 

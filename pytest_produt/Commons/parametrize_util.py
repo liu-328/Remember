@@ -1,8 +1,6 @@
 import json
 import traceback
-
 import yaml
-
 from Commons.logger_util import error_log
 from Commons.yaml_util import get_object_path, read_data_yml
 

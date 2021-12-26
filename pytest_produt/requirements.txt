@@ -8,3 +8,4 @@ pytest-rerunfailures
 pytest-base-url
 allure-pytest
 requests
+pyYAML
