@@ -1,8 +1,19 @@
 {
-  "total" : 1,
+  "total" : 2,
   "items" : [ {
     "uid" : "2ab37444362456ea9d8086650faac63c",
     "name" : "test_project",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 7,
+      "unknown" : 0,
+      "total" : 7
+    }
+  }, {
+    "uid" : "adc436b6d7463c00defebde70528e017",
+    "name" : "test_module",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,

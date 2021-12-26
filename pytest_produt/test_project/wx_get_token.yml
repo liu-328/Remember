@@ -11,6 +11,6 @@
       grant_type: $ddt{grant_type}
   extract:
     access_token: '"access_token":"(.*?)"'
+    expires_in: $.expires_in
   validate:
     - contains: $ddt{assert_str}
-

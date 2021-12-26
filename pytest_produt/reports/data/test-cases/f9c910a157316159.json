@@ -1,0 +1,120 @@
+{
+  "uid" : "f9c910a157316159",
+  "name" : "test_delete_label[args_name0]",
+  "fullName" : "test_project.test_wxapi.TestWxApi#test_delete_label",
+  "historyId" : "179e859c408e864890760804b153244c",
+  "time" : {
+    "start" : 1640513909924,
+    "stop" : 1640513910061,
+    "duration" : 137
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "clear_relation",
+    "time" : {
+      "start" : 1640513909196,
+      "stop" : 1640513909197,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1640513909196,
+      "stop" : 1640513909196,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_verify_url",
+    "time" : {
+      "start" : 1640513909196,
+      "stop" : 1640513909196,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "e2017726d095c6e5",
+      "name" : "log",
+      "source" : "e2017726d095c6e5.txt",
+      "type" : "text/plain",
+      "size" : 1079
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_project"
+  }, {
+    "name" : "suite",
+    "value" : "test_wxapi"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestWxApi"
+  }, {
+    "name" : "host",
+    "value" : "192.168.0.101"
+  }, {
+    "name" : "thread",
+    "value" : "51691-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_project.test_wxapi"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "args_name",
+    "value" : "{'name': '删除标签接口', 'request': {'method': 'post', 'url': '/tags/delete?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'id': '${read_relation_data(id)}'}}}, 'validate': [{'equals': {'errcode': 0}}, {'contains': 'ok'}]}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f9c910a157316159.json",
+  "parameterValues" : [ "{'name': '删除标签接口', 'request': {'method': 'post', 'url': '/tags/delete?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'id': '${read_relation_data(id)}'}}}, 'validate': [{'equals': {'errcode': 0}}, {'contains': 'ok'}]}" ]
+}

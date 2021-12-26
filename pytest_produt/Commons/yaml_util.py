@@ -10,7 +10,7 @@ def get_object_path():
 def read_config_yml(one, two):
     with open(get_object_path()+'/config.yml', 'r') as f:
         value = yaml.load(f, Loader=yaml.FullLoader)
-        return value['base'][two]
+        return value[one][two]
 
 
 # 读取relation.yml文件保存的关联数据

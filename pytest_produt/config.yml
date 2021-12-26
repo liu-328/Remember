@@ -1,3 +1,9 @@
+# 基础路径配置
 base:
   base_wx_api: https://api.weixin.qq.com/cgi-bin
   base_php_api: http://47.107.116.139
+# 日志配置
+log:
+  log_name: logs_
+  log_level: info
+  log_format: '[%(asctime)s] %(filename)s->%(funcName)s line:%(lineno)d [%(levelname)s] %(message)s'

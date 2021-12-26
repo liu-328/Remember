@@ -1,26 +1,117 @@
 {
   "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
   "children" : [ {
-    "name" : "liushijiadeMacBook-Pro.local",
+    "name" : "192.168.0.101",
     "children" : [ {
-      "name" : "88549-MainThread",
+      "name" : "51691-MainThread",
       "children" : [ {
-        "name" : "test_get_token",
-        "uid" : "699fc347d49bf70c",
-        "parentUid" : "dd7cf48b0712d925b86f04d26e73bd47",
+        "name" : "test_get_token[args_name0]",
+        "uid" : "5a6b7be5adb6c1ba",
+        "parentUid" : "9e299fbb13a6ad1369eab99f5e093bb4",
         "status" : "passed",
         "time" : {
-          "start" : 1638499285013,
-          "stop" : 1638499286296,
-          "duration" : 1283
+          "start" : 1640513909387,
+          "stop" : 1640513909597,
+          "duration" : 210
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ ]
+        "parameters" : [ "{'name': '获取鉴权码接口', 'parameterize': {'name-appid-secret-grant_type-assert_str': '/datas/get_token_data.yml'}, 'request': {'method': 'get', 'url': '/token', 'params': {'appid': 'wxcb74080c48a3441f', 'secret': '550a96b7617991fa4d9fb4c6fac416c5', 'grant_type': 'client_credential'}}, 'extract': {'access_token': '\"access_token\":\"(.*?)\"', 'expires_in': '$.expires_in'}, 'validate': [{'contains': 'access_token'}]}" ]
+      }, {
+        "name" : "test_php_home[args_name0]",
+        "uid" : "77631442c0d3474f",
+        "parentUid" : "9e299fbb13a6ad1369eab99f5e093bb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640513909198,
+          "stop" : 1640513909385,
+          "duration" : 187
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'name': 'PHP首页', 'request': {'method': 'get', 'url': '/phpwind/'}, 'validate': [{'contains': '本站新帖'}]}" ]
+      }, {
+        "name" : "test_upload_picture[args_name0]",
+        "uid" : "5a108dcda8c37d7c",
+        "parentUid" : "9e299fbb13a6ad1369eab99f5e093bb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640513910063,
+          "stop" : 1640513910620,
+          "duration" : 557
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'name': '文件上传接口', 'request': {'method': 'post', 'url': '/media/uploadimg?access_token=${read_relation_data(access_token)}', 'files': {'media': '/Users/liushijia/Pictures/16331636560492_.png'}}, 'validate': [{'contains': 'url'}]}" ]
+      }, {
+        "name" : "test_get_label[args_name0]",
+        "uid" : "eec3430c703cd13a",
+        "parentUid" : "9e299fbb13a6ad1369eab99f5e093bb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640513909630,
+          "stop" : 1640513909713,
+          "duration" : 83
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'name': '查询标签接口', 'request': {'method': 'get', 'url': '/tags/get', 'params': {'access_token': '${read_relation_data(access_token)}'}}, 'validate': [{'equals': {'name': '星标组'}}, {'contains': 'tags'}]}" ]
+      }, {
+        "name" : "test_make_label[args_name0]",
+        "uid" : "c8f2cbf3b6265e74",
+        "parentUid" : "9e299fbb13a6ad1369eab99f5e093bb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640513909714,
+          "stop" : 1640513909827,
+          "duration" : 113
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'name': '创建标签接口', 'request': {'method': 'post', 'url': '/tags/create?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'name': '小刘${get_random(00000, 99999)}'}}}, 'extract': {'id': '\"id\":(.*?),\"', 'name': '\"name\":\"(.*?)\"'}, 'validate': [{'equals': {'name': '${read_relation_data(name)}'}}, {'contains': 'tag'}]}" ]
+      }, {
+        "name" : "test_get_token[args_name1]",
+        "uid" : "d91324f89291559f",
+        "parentUid" : "9e299fbb13a6ad1369eab99f5e093bb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640513909599,
+          "stop" : 1640513909629,
+          "duration" : 30
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'name': '检查appid为空', 'parameterize': {'name-appid-secret-grant_type-assert_str': '/datas/get_token_data.yml'}, 'request': {'method': 'get', 'url': '/token', 'params': {'appid': '', 'secret': '550a96b7617991fa4d9fb4c6fac416c5', 'grant_type': 'client_credential'}}, 'extract': {'access_token': '\"access_token\":\"(.*?)\"', 'expires_in': '$.expires_in'}, 'validate': [{'contains': 41002}]}" ]
+      }, {
+        "name" : "test_delete_label[args_name0]",
+        "uid" : "f9c910a157316159",
+        "parentUid" : "9e299fbb13a6ad1369eab99f5e093bb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640513909924,
+          "stop" : 1640513910061,
+          "duration" : 137
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'name': '删除标签接口', 'request': {'method': 'post', 'url': '/tags/delete?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'id': '${read_relation_data(id)}'}}}, 'validate': [{'equals': {'errcode': 0}}, {'contains': 'ok'}]}" ]
+      }, {
+        "name" : "test_edit_label[args_name0]",
+        "uid" : "1ca082add9bfd7b6",
+        "parentUid" : "9e299fbb13a6ad1369eab99f5e093bb4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640513909829,
+          "stop" : 1640513909922,
+          "duration" : 93
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'name': '修改标签接口', 'request': {'method': 'post', 'url': '/tags/update?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'id': '${read_relation_data(id)}', 'name': '修改${get_random(00000, 99999)}'}}}, 'validate': [{'equals': {'errcode': 0}}, {'contains': 'ok'}]}" ]
       } ],
-      "uid" : "dd7cf48b0712d925b86f04d26e73bd47"
+      "uid" : "9e299fbb13a6ad1369eab99f5e093bb4"
     } ],
-    "uid" : "797e53f0b2acd3a47075b5378a8236c7"
+    "uid" : "9a0aa619b6afa4e5b6d6039b3e977147"
   } ],
   "name" : "timeline"
 }

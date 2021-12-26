@@ -1,0 +1,120 @@
+{
+  "uid" : "d91324f89291559f",
+  "name" : "test_get_token[args_name1]",
+  "fullName" : "test_project.test_wxapi.TestWxApi#test_get_token",
+  "historyId" : "8c8474723518bc79489178609683a4fa",
+  "time" : {
+    "start" : 1640513909599,
+    "stop" : 1640513909629,
+    "duration" : 30
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "clear_relation",
+    "time" : {
+      "start" : 1640513909196,
+      "stop" : 1640513909197,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1640513909196,
+      "stop" : 1640513909196,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_verify_url",
+    "time" : {
+      "start" : 1640513909196,
+      "stop" : 1640513909196,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "b82993d9f681431a",
+      "name" : "log",
+      "source" : "b82993d9f681431a.txt",
+      "type" : "text/plain",
+      "size" : 819
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_project"
+  }, {
+    "name" : "suite",
+    "value" : "test_wxapi"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestWxApi"
+  }, {
+    "name" : "host",
+    "value" : "192.168.0.101"
+  }, {
+    "name" : "thread",
+    "value" : "51691-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_project.test_wxapi"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "args_name",
+    "value" : "{'name': '检查appid为空', 'parameterize': {'name-appid-secret-grant_type-assert_str': '/datas/get_token_data.yml'}, 'request': {'method': 'get', 'url': '/token', 'params': {'appid': '', 'secret': '550a96b7617991fa4d9fb4c6fac416c5', 'grant_type': 'client_credential'}}, 'extract': {'access_token': '\"access_token\":\"(.*?)\"', 'expires_in': '$.expires_in'}, 'validate': [{'contains': 41002}]}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "d91324f89291559f.json",
+  "parameterValues" : [ "{'name': '检查appid为空', 'parameterize': {'name-appid-secret-grant_type-assert_str': '/datas/get_token_data.yml'}, 'request': {'method': 'get', 'url': '/token', 'params': {'appid': '', 'secret': '550a96b7617991fa4d9fb4c6fac416c5', 'grant_type': 'client_credential'}}, 'extract': {'access_token': '\"access_token\":\"(.*?)\"', 'expires_in': '$.expires_in'}, 'validate': [{'contains': 41002}]}" ]
+}
