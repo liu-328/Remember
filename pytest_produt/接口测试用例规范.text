@@ -1,0 +1,29 @@
+接口自动化测试框架YAML测试用例规范：
+一.一级关键字必须要包含：name,request,validate
+二.在request下必须包含：method,url
+三.传参方式：
+    1.get请求，那么必须通过params传参
+    2.post请求
+        传json格式，需要使用json传参。
+        传表单格式，需要使用data传参
+    3.文件上传：使用files传参
+四、接口关联
+    多种提取方式（提取多个值）：正则表达式和jsonpath表达式提取
+    extract:
+        access_token: '"access_token":"(.*?)"'  #正则
+        expires_in: $.expires_in                #jsonpath
+    取值方式：
+    ${read_extract_data(access_token)}
+五、热加载
+    1.在debug_talk.py的DebugTalk类(可以自定义)文件中定义方法，注意返回值需要字符串就返回字符串，需要整形就返回整形，如下：
+    # 获得随机数
+     def get_random(self, min_number, max_number):
+        min_number = int(min_number)
+        max_number = int(max_number)
+        return str(random.randint(min_number, max_number))
+    2.在测试用例当中传入类的对象，如DebugTalk()
+    @pytest.mark.parametrize('args_name', read_case_yml('/test_project/wx_get_token.yml'))
+    def test_get_token(self, args_name):
+        RequestsUtil('base_wx_api', DebugTalk()).standard_yaml(args_name)
+    3.在YAML测试用例中调用函数：如：
+    json: {"tag":{"name":"小刘真帅${get_random(10000,99999)}"}}
