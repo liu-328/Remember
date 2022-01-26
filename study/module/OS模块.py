@@ -28,7 +28,7 @@ path1 = "study/文件/os模块.py"
 print(os.path.split(path)[1])
 print(os.path.join(path, path1))
 # 读取文件夹内的文件名以列表的形式返回
-print(os.listdir("/Users/liushijia/Documents/git/Remember/pytest_produt/Commons"))
+print(os.listdir("/pytest_product/Commons"))
 
 
 # 读取当前目录下的所有文件

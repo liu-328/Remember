@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/liushijia/Documents/git/Remember/study/异常/查看异常.py", line 7, in num
+    num = num1 + num2
+TypeError: unsupported operand type(s) for +: 'int' and 'str'

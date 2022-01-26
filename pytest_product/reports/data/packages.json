@@ -1,0 +1,149 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "test_module.test_php_api",
+    "children" : [ {
+      "name" : "test_php_home[args_name0]",
+      "uid" : "5ec54658434be58",
+      "parentUid" : "f0ca68abf9544fd7232de6d3c54da6f7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641209368224,
+        "stop" : 1641209368371,
+        "duration" : 147
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "{'name': 'PHP首页', 'request': {'method': 'get', 'url': '/phpwind/'}, 'validate': [{'contains': '本站新帖'}]}" ]
+    } ],
+    "uid" : "test_module.test_php_api"
+  }, {
+    "name" : "test_project.test_wxapi",
+    "children" : [ {
+      "name" : "test_get_token[args_name0]",
+      "uid" : "adba71f57b298239",
+      "parentUid" : "90f786f588f496827dc66ab682c49164",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641209368374,
+        "stop" : 1641209368551,
+        "duration" : 177
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "{'name': '获取鉴权码接口', 'parameterize': {'name-appid-secret-grant_type-assert_str': '/datas/get_token_data.yml'}, 'request': {'method': 'get', 'url': '/token', 'params': {'appid': 'wxcb74080c48a3441f', 'secret': '550a96b7617991fa4d9fb4c6fac416c5', 'grant_type': 'client_credential'}}, 'extract': {'access_token': '\"access_token\":\"(.*?)\"', 'expires_in': '$.expires_in'}, 'validate': [{'contains': 'access_token'}]}" ]
+    }, {
+      "name" : "test_get_token[args_name1]",
+      "uid" : "e08dbd5831ac684",
+      "parentUid" : "90f786f588f496827dc66ab682c49164",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641209368553,
+        "stop" : 1641209368573,
+        "duration" : 20
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "{'name': '检查appid为空', 'parameterize': {'name-appid-secret-grant_type-assert_str': '/datas/get_token_data.yml'}, 'request': {'method': 'get', 'url': '/token', 'params': {'appid': '', 'secret': '550a96b7617991fa4d9fb4c6fac416c5', 'grant_type': 'client_credential'}}, 'extract': {'access_token': '\"access_token\":\"(.*?)\"', 'expires_in': '$.expires_in'}, 'validate': [{'contains': 41002}]}" ]
+    }, {
+      "name" : "test_get_label[args_name0]",
+      "uid" : "1ced473c23afd61b",
+      "parentUid" : "90f786f588f496827dc66ab682c49164",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641209368575,
+        "stop" : 1641209368646,
+        "duration" : 71
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "{'name': '查询标签接口', 'request': {'method': 'get', 'url': '/tags/get', 'params': {'access_token': '${read_relation_data(access_token)}'}}, 'validate': [{'equals': {'name': '星标组'}}, {'contains': 'tags'}]}" ]
+    }, {
+      "name" : "test_make_label[args_name0]",
+      "uid" : "c70b40c13db386d4",
+      "parentUid" : "90f786f588f496827dc66ab682c49164",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641209368647,
+        "stop" : 1641209368757,
+        "duration" : 110
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "{'name': '创建标签接口', 'request': {'method': 'post', 'url': '/tags/create?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'name': '小刘${get_random(00000, 99999)}'}}}, 'extract': {'id': '\"id\":(.*?),\"', 'name': '\"name\":\"(.*?)\"'}, 'validate': [{'equals': {'name': '${read_relation_data(name)}'}}, {'contains': 'tag'}]}" ]
+    }, {
+      "name" : "test_edit_label[args_name0]",
+      "uid" : "9d95ca532e7e579",
+      "parentUid" : "90f786f588f496827dc66ab682c49164",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641209368758,
+        "stop" : 1641209368843,
+        "duration" : 85
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "{'name': '修改标签接口', 'request': {'method': 'post', 'url': '/tags/update?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'id': '${read_relation_data(id)}', 'name': '修改${get_random(00000, 99999)}'}}}, 'validate': [{'equals': {'errcode': 0}}, {'contains': 'ok'}]}" ]
+    }, {
+      "name" : "test_delete_label[args_name0]",
+      "uid" : "e4f400d03196ebd0",
+      "parentUid" : "90f786f588f496827dc66ab682c49164",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641209368845,
+        "stop" : 1641209368934,
+        "duration" : 89
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "{'name': '删除标签接口', 'request': {'method': 'post', 'url': '/tags/delete?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'id': '${read_relation_data(id)}'}}}, 'validate': [{'equals': {'errcode': 0}}, {'contains': 'ok'}]}" ]
+    }, {
+      "name" : "test_upload_picture[args_name0]",
+      "uid" : "cd63c591211b6277",
+      "parentUid" : "90f786f588f496827dc66ab682c49164",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641209368935,
+        "stop" : 1641209369352,
+        "duration" : 417
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 0,
+      "retriesStatusChange" : false,
+      "parameters" : [ "{'name': '文件上传接口', 'request': {'method': 'post', 'url': '/media/uploadimg?access_token=${read_relation_data(access_token)}', 'files': {'media': '/Users/liushijia/Pictures/16331636560492_.png'}}, 'validate': [{'contains': 'url'}]}" ]
+    } ],
+    "uid" : "test_project.test_wxapi"
+  } ],
+  "name" : "packages"
+}

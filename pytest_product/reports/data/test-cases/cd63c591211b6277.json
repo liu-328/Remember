@@ -1,0 +1,124 @@
+{
+  "uid" : "cd63c591211b6277",
+  "name" : "test_upload_picture[args_name0]",
+  "fullName" : "test_project.test_wxapi.TestWxApi#test_upload_picture",
+  "historyId" : "1c23edf340d37a4e5f2918c6c606efb5",
+  "time" : {
+    "start" : 1641209368935,
+    "stop" : 1641209369352,
+    "duration" : 417
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ {
+    "name" : "clear_relation",
+    "time" : {
+      "start" : 1641209368224,
+      "stop" : 1641209368224,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1641209368224,
+      "stop" : 1641209368224,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_verify_url",
+    "time" : {
+      "start" : 1641209368224,
+      "stop" : 1641209368224,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "aba0aeeec68c693b",
+      "name" : "log",
+      "source" : "aba0aeeec68c693b.txt",
+      "type" : "text/plain",
+      "size" : 1233
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_project"
+  }, {
+    "name" : "suite",
+    "value" : "test_wxapi"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestWxApi"
+  }, {
+    "name" : "host",
+    "value" : "192.168.0.101"
+  }, {
+    "name" : "thread",
+    "value" : "43581-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_project.test_wxapi"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "args_name",
+    "value" : "{'name': '文件上传接口', 'request': {'method': 'post', 'url': '/media/uploadimg?access_token=${read_relation_data(access_token)}', 'files': {'media': '/Users/liushijia/Pictures/16331636560492_.png'}}, 'validate': [{'contains': 'url'}]}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "cd63c591211b6277.json",
+  "parameterValues" : [ "{'name': '文件上传接口', 'request': {'method': 'post', 'url': '/media/uploadimg?access_token=${read_relation_data(access_token)}', 'files': {'media': '/Users/liushijia/Pictures/16331636560492_.png'}}, 'validate': [{'contains': 'url'}]}" ]
+}

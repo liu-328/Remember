@@ -1,1 +1,8 @@
 .idea/
+/venv
+/.pytest_cache
+*.log
+*.txt
+*.json
+/.DS_Store
+/__pycache__/

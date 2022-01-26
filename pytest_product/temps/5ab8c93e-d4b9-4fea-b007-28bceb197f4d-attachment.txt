@@ -1,0 +1,10 @@
+INFO     log:logger_util.py:74 ---------------测试开始---------------
+INFO     log:logger_util.py:74 接口名称：检查appid为空
+INFO     log:logger_util.py:74 请求方法：get
+INFO     log:logger_util.py:74 请求路径：https://api.weixin.qq.com/cgi-bin/token
+INFO     log:logger_util.py:74 接口参数：https://api.weixin.qq.com/cgi-bin/token
+INFO     log:logger_util.py:74 接口参数params：{'appid': '', 'secret': '550a96b7617991fa4d9fb4c6fac416c5', 'grant_type': 'client_credential'}
+INFO     log:logger_util.py:74 预期结果：[{'contains': 41002}]
+INFO     log:logger_util.py:74 实际结果：{"errcode":41002,"errmsg":"appid missing rid: 61d2de18-6b8831d2-622cada5"}
+INFO     log:logger_util.py:74 测试成功
+INFO     log:logger_util.py:74 ---------------接口测试结束---------------

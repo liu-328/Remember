@@ -1,0 +1,124 @@
+{
+  "uid" : "c70b40c13db386d4",
+  "name" : "test_make_label[args_name0]",
+  "fullName" : "test_project.test_wxapi.TestWxApi#test_make_label",
+  "historyId" : "d1cacc934d64985b0345d97f8246d03c",
+  "time" : {
+    "start" : 1641209368647,
+    "stop" : 1641209368757,
+    "duration" : 110
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ {
+    "name" : "clear_relation",
+    "time" : {
+      "start" : 1641209368224,
+      "stop" : 1641209368224,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1641209368224,
+      "stop" : 1641209368224,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_verify_url",
+    "time" : {
+      "start" : 1641209368224,
+      "stop" : 1641209368224,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "6f37179facffac3b",
+      "name" : "log",
+      "source" : "6f37179facffac3b.txt",
+      "type" : "text/plain",
+      "size" : 1113
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_project"
+  }, {
+    "name" : "suite",
+    "value" : "test_wxapi"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestWxApi"
+  }, {
+    "name" : "host",
+    "value" : "192.168.0.101"
+  }, {
+    "name" : "thread",
+    "value" : "43581-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_project.test_wxapi"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "args_name",
+    "value" : "{'name': '创建标签接口', 'request': {'method': 'post', 'url': '/tags/create?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'name': '小刘${get_random(00000, 99999)}'}}}, 'extract': {'id': '\"id\":(.*?),\"', 'name': '\"name\":\"(.*?)\"'}, 'validate': [{'equals': {'name': '${read_relation_data(name)}'}}, {'contains': 'tag'}]}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c70b40c13db386d4.json",
+  "parameterValues" : [ "{'name': '创建标签接口', 'request': {'method': 'post', 'url': '/tags/create?access_token=${read_relation_data(access_token)}', 'json': {'tag': {'name': '小刘${get_random(00000, 99999)}'}}}, 'extract': {'id': '\"id\":(.*?),\"', 'name': '\"name\":\"(.*?)\"'}, 'validate': [{'equals': {'name': '${read_relation_data(name)}'}}, {'contains': 'tag'}]}" ]
+}
