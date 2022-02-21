@@ -4,8 +4,8 @@ from selenium.webdriver.common.by import By
 from webdriver_helper import *
 
 # 浏览器driver对象创建
-
 service = Service()
+
 # 浏览器对象创建
 options = webdriver.ChromeOptions()
 
@@ -35,18 +35,30 @@ for win_id in driver.window_handles:
 
 driver.get("http://118.24.147.95:8086/switch_to.html")
 
-# 切换弹窗alert
-alert = driver.switch_to.alert  # js弹窗是阻塞形代码
+# 切换弹窗alert 处理弹窗
+alert = driver.switch_to.alert  # js弹窗是一种阻塞形代码
 print(alert)
 # 点击弹窗的确定按钮
 alert.accept()
-# # 点击取消按钮
-# alert.dismiss()
-# # 向弹窗输入内容
-# alert.send_keys('x')
+
+# alert.dismiss()  # 点击取消按钮
+
+# alert.send_keys('x')  # 向弹窗输入内容
 
 # 切换到frame标签  ---->进入标签
-driver.switch_to.frame(0)  # 通过frame的id切换
+# 通过frame的id切换 只有一个frame的情况下，0表示第一个
+# 可以通过id去切换。
+# 也可以通过name去切换
+# 指定定位到frame 就可以通过任意方法去定位frame
+driver.switch_to.frame(0)
+
+"""
+通过iframe本身去切换
+1、定位到iframe本身
+ele1 = driver.find_element(By.XPATH, '/html/body/iframe')
+2.切换元素
+driver.switch_to.frame(ele1)
+"""
 
 """方法1"""
 # 使用CSS选择器定位到h2元素

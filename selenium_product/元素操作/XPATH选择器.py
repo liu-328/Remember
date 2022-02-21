@@ -24,8 +24,8 @@ with get_webdriver() as driver:
     ele = driver.find_elements(By.XPATH, '//input[@name='+"'"+"wd"+"'"+']')[1]
     ele1 = driver.find_elements(By.XPATH, '//input[@name='+"'"+"wd"+"'"+']')[0]
     ele2 = driver.find_elements(By.XPATH, '//div[last()]')
-    print(ele)
-    print(ele1)
+    print(ele.tag_name)
+    print(ele1.tag_name)
     print(len(ele2))  # 每个层级的最后一个div元素
 
     # 位置表示2：$x('/html/body/div')[1]

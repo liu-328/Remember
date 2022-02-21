@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from webdriver_helper import *
 
 service = Service(executable_path=r'/Library/Frameworks/Python.framework/Versions/3.10/bin/chromedriver')
 
@@ -12,7 +13,7 @@ driver = webdriver.Chrome(service=service, options=options)
 # 不需要返回值的js代码
 driver.execute_script("alert(1)")
 alert = driver.switch_to.alert
-
+print(alert)
 # 去除弹窗
 alert.accept()
 
@@ -20,7 +21,7 @@ alert.accept()
 a = driver.execute_script("return 1+1")
 print('1 + 1 = ', a)
 
-# 传递参数
+# 传递参数 -return 1+arguments[0]", 100 == return 1+100
 a = driver.execute_script("return 1+arguments[0]", 100)
 
 print('a = ', a)

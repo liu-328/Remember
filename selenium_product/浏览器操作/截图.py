@@ -19,7 +19,7 @@ with open('tutu.png', 'wb') as file:
     file.write(b64decode(driver.get_screenshot_as_base64()))
 
 # 截取图片保存在指定路径
-driver.get_screenshot_as_file(r"/Users/liushijia/Documents/git/Remember/selenium_product/selenium_browser/tu.png")
+driver.get_screenshot_as_file(r"/Users/liushijia/Documents/git/Remember/selenium_product/浏览器操作/tu.png")
 
 driver.quit()
 
